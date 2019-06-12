@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from data import Articles
-
+from data import Warmane
 app = Flask(__name__)
 app.debug=True
 
@@ -14,6 +14,10 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/warmane')
+def warmane():
+    return render_template('warmane.html', data = Warmane())
+
 
 @app.route('/articles')
 def articles():
@@ -21,4 +25,5 @@ def articles():
 
 
 if __name__ == '__main__':
+    print(Warmane())
     app.run()

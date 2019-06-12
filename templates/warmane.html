@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Warmane</h1>
+  <table border=1>
+    <th>
+      <tr style="color: green; ">
+        <td>Name</td>
+        <td>Level</td>
+        <td>Gender</td>
+        <td>Race</td>
+        <td>Class</td>
+        <td>Online</td>
+      </tr>
+  {% for person in data %}
+    <tr>
+      <td>{{person.name}}</td>
+      <td>{{person.level}}</td>
+      <td>{{person.gender}}</td>
+      <td>{{person.race}}</td>
+      <td>{{person.class}}</td>
+      <td>{{person.online}}</td>
+  {% endfor %}
+</table>
+{% endblock %}

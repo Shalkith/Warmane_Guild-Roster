@@ -1,3 +1,29 @@
+
+def Warmane():
+    import requests
+    url = "http://armory.warmane.com/api/guild/Born+On+A+Blood+Moon/Lordaeron/members"
+    data = requests.get(url)
+    data = data.json()
+    rosterlist = []
+    fakelist =[
+        {
+            'name': 'Kassie',
+            'online': False,
+            'level': '80',
+            'gender': 'Female',
+            'race': 'Draenei',
+            'racemask': 1024,
+            'class': 'Priest',
+            'classmask': 16,
+            'achievementpoints': '4260',
+            'professions': {'professions': [{'name': 'Tailoring', 'skill': '450'}, {'name': 'Enchanting', 'skill': '450'}]}},
+        {'name': 'Sylphia', 'online': False, 'level': '80', 'gender': 'Female', 'race': 'Night Elf', 'racemask': 8, 'class': 'Druid', 'classmask': 1024, 'achievementpoints': '4040', 'professions': {'professions': [{'name': 'Leatherworking', 'skill': '450'}, {'name': 'Herbalism', 'skill': '450'}]}},
+        {'name': 'Fannypac', 'online': False, 'level': '5', 'gender': 'Female', 'race': 'Dwarf', 'racemask': 4, 'class': 'Rogue', 'classmask': 8, 'achievementpoints': '20', 'professions': []}
+    ]
+    for x in data['roster']:
+        rosterlist.append(x)
+    return rosterlist
+
 def Articles():
     articles = [
         {
