@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from data import Articles
-from data import Warmane
+from data import Warmane, Guildname
 app = Flask(__name__)
 app.debug=True
 
@@ -17,6 +17,7 @@ def about():
 @app.route('/warmane')
 def warmane():
     return render_template('warmane.html', data = Warmane())
+    #return render_template('warmane.html', data = Warmane(), name = Guildname())
 
 
 @app.route('/articles')
@@ -25,5 +26,5 @@ def articles():
 
 
 if __name__ == '__main__':
-    print(Warmane())
+    Guildname()
     app.run()

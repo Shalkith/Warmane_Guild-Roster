@@ -1,25 +1,45 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <h1>Warmane</h1>
-  <table border=1>
-    <th>
-      <tr style="color: green; ">
-        <td>Name</td>
-        <td>Level</td>
-        <td>Gender</td>
-        <td>Race</td>
-        <td>Class</td>
-        <td>Online</td>
+  <h1>{{name}}</h1>
+  <div style="text-align: center;">
+  <table style="margin: 10px auto;" border="1" cellpadding="400" align=center>
+    <tr>
+        <th align="center">Name</th>
+        <th align="center">Level</th>
+        <th align="center">Gender</th>
+        <th align="center">Race</th>
+        <th align="center">Class</th>
+        <th align="center">Online</th>
       </tr>
   {% for person in data %}
+  {% if person.online == True %}
     <tr>
-      <td>{{person.name}}</td>
-      <td>{{person.level}}</td>
-      <td>{{person.gender}}</td>
-      <td>{{person.race}}</td>
-      <td>{{person.class}}</td>
-      <td>{{person.online}}</td>
+      <td align="center">{{person.name}}</td>
+      <td align="center">{{person.level}}</td>
+      <td align="center">{{person.gender}}</td>
+      <td align="center">{{person.race}}</td>
+      <td align="center">{{person.class}}</td>
+      <td align="center"><font color='green'>Online</font></td>
+    </tr>
+  {% else %}
+
+  {% endif %}
   {% endfor %}
+  {% for person in data %}
+  {% if person.online == False %}
+    <tr>
+      <td align="center">{{person.name}}</td>
+      <td align="center">{{person.level}}</td>
+      <td align="center">{{person.gender}}</td>
+      <td align="center">{{person.race}}</td>
+      <td align="center">{{person.class}}</td>
+      <td align="center"><font color='red'>Offline</font></td>
+    </tr>
+  {% else %}
+  {% endif %}
+
+  {% endfor %}
+</div>
 </table>
 {% endblock %}
