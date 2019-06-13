@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from data import Articles
-from data import Warmane, Guildname
+from data import Warmane
 app = Flask(__name__)
 app.debug=True
 
@@ -26,5 +26,5 @@ def articles():
 
 
 if __name__ == '__main__':
-    Guildname()
+    #Guildname()
     app.run()

@@ -9,12 +9,12 @@ def Warmane():
         rosterlist.append(x)
     return rosterlist
 
-def Guildname():
-    import requests
-    url = "http://armory.warmane.com/api/guild/Born+On+A+Blood+Moon/Lordaeron/members"
-    data2 = requests.get(url)
-    data2 = data2.json()
-    return data2['name']
+#def Guildname():
+    # import requests
+    # url = "http://armory.warmane.com/api/guild/Born+On+A+Blood+Moon/Lordaeron/members"
+    # data2 = requests.get(url)
+    # data2 = data2.json()
+    # return data2['name']
 
 def Articles():
     articles = [
