@@ -1,16 +1,62 @@
 <!DOCTYPE html>
 <html>
+
+
+<style>table {
+  border-collapse: collapse;
+  width: 80%;
+  float: center;
+  opacity: 0.9;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #000111;color:gray}
+tr:nth-child(odd){background-color: #000000;color:gray}
+th {
+  background-color: #272626;
+  color: gray;
+}
+
+
+@font-face {
+  font-family: FRIZQT;
+  src: url(/static/fonts/frizqt__.ttf);
+}
+div {
+  font-family: FRIZQT;
+}
+
+
+@font-face {
+  font-family: folkard;
+  src: url(/static/fonts/folkard_.ttf);
+}
+div2 {
+  font-family: folkard;
+}
+
+</style>
+
+
+
   <head>
     <meta charset="utf-8">
     <title>MyFlaskApp</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/mainpage.css">
   </head>
   <body>
+
       {% include 'includes/_navbar.html' %}
       <div class="container">
       {% block body %}{% endblock %}
     </div>
 
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!--<script src="/static/js/jquery.min.js"></script>
+      --><script src="/static/js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -1,26 +1,42 @@
 {% extends 'layout.html' %}
+{% set onlinecount = [] %}
 
 {% block body %}
+
   <h1>{{name}}</h1>
   <div style="text-align: center;">
-  <table style="margin: 10px auto;" border="1" cellpadding="400" align=center>
+  <table style="margin: 20px auto;" border="1" cellpadding="50" align=center>
     <tr>
+      <td colspan="6" align="center">
+        <div2><h1>Born on a Blood Moon</h1>
+        </div2>
+
+        {% for person in data %}
+        {% if person.online == True %}
+        {% if onlinecount.append(1) %}{% endif %}
+        {% endif %}
+        {% endfor %}
+
+
+        <br>{{onlinecount|length}} online!
+      </td>
+    </tr>
+    <tr>
+        <th align="center">Status</th>
         <th align="center">Name</th>
         <th align="center">Level</th>
-        <th align="center">Gender</th>
-        <th align="center">Race</th>
-        <th align="center">Class</th>
-        <th align="center">Online</th>
+        <th align="center">Achievement Points</th>
+        <th align="center"></th>
       </tr>
   {% for person in data %}
   {% if person.online == True %}
     <tr>
+      <td align="center"><font color='green'>Online</font></td>
       <td align="center">{{person.name}}</td>
       <td align="center">{{person.level}}</td>
-      <td align="center">{{person.gender}}</td>
-      <td align="center">{{person.race}}</td>
-      <td align="center">{{person.class}}</td>
-      <td align="center"><font color='green'>Online</font></td>
+      <td align="center">{{person.achievementpoints}}</td>
+      <td align="center"><img src="/static/images/icons/{{person.race.lower() | replace(" ","")}}-{{person.gender.lower()}}.png" style="width:20px;height:20px;">
+        <img src="/static/images/icons/classicon_{{person.class.lower() | replace(" ","")}}.jpg" style="width:20px;height:20px;"></td>
     </tr>
   {% else %}
 
@@ -29,12 +45,12 @@
   {% for person in data %}
   {% if person.online == False %}
     <tr>
+      <td align="center"><font color='red'>Offline</font></td>
       <td align="center">{{person.name}}</td>
       <td align="center">{{person.level}}</td>
-      <td align="center">{{person.gender}}</td>
-      <td align="center">{{person.race}}</td>
-      <td align="center">{{person.class}}</td>
-      <td align="center"><font color='red'>Offline</font></td>
+      <td align="center">{{person.achievementpoints}}</td>
+      <td align="center"><img src="/static/images/icons/{{person.race.lower() | replace(" ","")}}-{{person.gender.lower()}}.png" style="width:20px;height:20px;">
+        <img src="/static/images/icons/classicon_{{person.class.lower() | replace(" ","")}}.jpg" style="width:20px;height:20px;"></td>
     </tr>
   {% else %}
   {% endif %}
