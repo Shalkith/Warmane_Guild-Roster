@@ -1,7 +1,7 @@
 
-def Warmane():
+def Warmane(guild,realm):
     import requests
-    url = "http://armory.warmane.com/api/guild/Born+On+A+Blood+Moon/Lordaeron/members"
+    url = "http://armory.warmane.com/api/guild/"+guild+"/"+realm+"/members"
     data1 = requests.get(url)
     data1 = data1.json()
     rosterlist = []

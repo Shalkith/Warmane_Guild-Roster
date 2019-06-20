@@ -5,10 +5,19 @@
 
   <h1>{{name}}</h1>
   <div style="text-align: center;">
+
   <table style="margin: 20px auto;" border="1" cellpadding="50" align=center>
     <tr>
       <td colspan="6" align="center">
-        <div2><h1>Born on a Blood Moon</h1>
+        <div2><h1>
+
+          <br>
+          {% if result %}
+          {{result.Guild|replace("+"," ")}}
+          {%else%}
+          Born On A Blood Moon
+          {%endif%}
+        </h1>
         </div2>
 
         {% for person in data %}
@@ -19,14 +28,15 @@
 
 
         <br>{{onlinecount|length}} online!
+
       </td>
     </tr>
     <tr>
-        <th align="center">Status</th>
-        <th align="center">Name</th>
-        <th align="center">Level</th>
-        <th align="center">Achievement Points</th>
-        <th align="center"></th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Level</th>
+        <th class="text-center">Achievement Points</th>
+        <th class="text-center"></th>
       </tr>
   {% for person in data %}
   {% if person.online == True %}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from data import Articles
 from data import Warmane
 app = Flask(__name__)
@@ -6,17 +6,47 @@ app.debug=True
 
 Articles = Articles()
 
-@app.route('/')
+
+class BenefitTemplateService(object):
+
+    @staticmethod
+    def create(params):
+        # some validation here
+
+        params['credit_behavior'] = "none"
+        return params
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return '404'
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return '500'
+    return render_template('404.html'), 404
+
+
+@app.route('/',methods=['GET', 'POST'])
 def index():
-    return render_template('home.html')
+    if request.method=="POST":
+        parameters = request.form.to_dict()
+        response = BenefitTemplateService.create(parameters)
+        print(response['Guild'])
+        return render_template('warmane.html', data = Warmane(response['Guild'],response['Realm']), result = response)
+    else:
+        return render_template('warmane.html', data = Warmane("Born+On+A+Blood+Moon","Lordaeron"))
 
 @app.route('/about')
 def about():
     return render_template('about.html')
 
-@app.route('/warmane')
-def warmane():
-    return render_template('warmane.html', data = Warmane())
+#@app.route('/warmane')
+#def warmane():
+#    return render_template('warmane.html', data = Warmane())
     #return render_template('warmane.html', data = Warmane(), name = Guildname())
 
 

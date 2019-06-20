@@ -1,7 +1,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
 
-        <a href="./index.php" class="navbar-brand">Born on a Blood Moon</a>
+        <a href="/" class="navbar-brand">Born on a Blood Moon</a>
 
          <button class="navbar-toggle" data-toggle="collapse" data-target=".nav-header-collapse">
             <span class="icon-bar"></span>
@@ -13,12 +13,19 @@
             <ul class="nav navbar-nav navbar-left">
 
                 <li class="active">
-                  <a href="warmane">Index</a>
+                  <a href="/">Index</a>
                 </li>
 
                 <li class="">
                   <a href="stats">Stats</a>
-                </li>
+                </li></ul>
+                <ul class="nav navbar-nav navbar-left">
+                {% include 'post.html' %}
+              </ul>
+              </div>
+
+
+
 
             </ul>
         </div>
