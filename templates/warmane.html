@@ -1,16 +1,12 @@
 {% extends 'layout.html' %}
 {% set onlinecount = [] %}
-
 {% block body %}
-
   <h1>{{name}}</h1>
   <div style="text-align: center;">
-
-  <table style="margin: 20px auto;" border="1" cellpadding="50" align=center>
+  <table class="sortable" border="1" align=center>
     <tr>
       <td colspan="6" align="center">
         <div2><h1>
-
           <br>
           {% if result %}
           {{result.Guild|replace("+"," ")}}
@@ -19,14 +15,11 @@
           {%endif%}
         </h1>
         </div2>
-
         {% for person in data %}
         {% if person.online == True %}
         {% if onlinecount.append(1) %}{% endif %}
         {% endif %}
         {% endfor %}
-
-
         <br>{{onlinecount|length}} online!
 
       </td>

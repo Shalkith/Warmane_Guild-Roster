@@ -1,5 +1,19 @@
 <div class="jumbotron jumbotron-fluid jumbotron-miragewow">
     <div class="container">
-      <center><img height=100 width=100 src="/static/images/alliance.png"></center>
+      {% if data %}
+      {% if data[0].race == "Draenei" %}
+      <center><img height=125 width=100 src="/static/images/alliance.png"></center>
+      {% elif data[0].race == "Human" %}
+      <center><img height=125 width=100 src="/static/images/alliance.png"></center>
+      {% elif data[0].race == "Dwarf" %}
+      <center><img height=125 width=100 src="/static/images/alliance.png"></center>
+      {% elif data[0].race == "Gnome" %}
+      <center><img height=125 width=100 src="/static/images/alliance.png"></center>
+      {% elif data[0].race == "Night Elf" %}
+      <center><img height=125 width=100 src="/static/images/alliance.png"></center>
+      {%else%}
+      <center><img height=125 width=100 src="/static/images/horde.png"></center>
+      {%endif%}
+      {%endif%}
     </div>
 </div>

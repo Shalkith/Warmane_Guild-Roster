@@ -1,7 +1,16 @@
+
+
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
 
-        <a href="/" class="navbar-brand">Born on a Blood Moon</a>
+        <a href="/" class="navbar-brand">
+          {% if result %}
+          {{result.Guild|replace("+"," ")}}
+          {%else%}
+          Born On A Blood Moon
+          {%endif%}
+</a>
 
          <button class="navbar-toggle" data-toggle="collapse" data-target=".nav-header-collapse">
             <span class="icon-bar"></span>
@@ -17,10 +26,10 @@
                 </li>
 
                 <li class="">
-                  <a href="stats">Stats</a>
+                  <!-- <a href="stats">Stats</a> -->
                 </li></ul>
-                <ul class="nav navbar-nav navbar-left">
-                {% include 'post.html' %}
+                <ul class="btn2-margin-right btn2-margin-left nav navbar-nav navbar-left">
+                     {% include 'post.html' %}
               </ul>
               </div>
 
