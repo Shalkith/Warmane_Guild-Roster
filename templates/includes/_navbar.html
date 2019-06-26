@@ -5,10 +5,10 @@
     <div class="container">
 
         <a href="/" class="navbar-brand">
-          {% if result %}
-          {{result.Guild|replace("+"," ")}}
+          {% if result %}{%if data == 'no good'%}Warmane Guild Search{%else%}
+          {{result.Guild|replace("+"," ")|upper}}{%endif%}
           {%else%}
-          Born On A Blood Moon
+          Warmane Guild Search
           {%endif%}
 </a>
 

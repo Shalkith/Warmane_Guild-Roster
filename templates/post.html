@@ -8,10 +8,10 @@
 <input type="text" name="Guild" value=
 {% if result %}
 "
-{{result.Guild|replace("+"," ")}}
+{{result.Guild|replace("+"," ")|upper}}
 "
 {%else%}
-"Born On A Blood Moon"
+""
 {%endif%}
 
 
@@ -22,7 +22,7 @@
   <option value="{{result.Realm}}">{{result.Realm}}</option>
   {% endif %}
   <option value="Lordaeron">Lordaeron</option>
-  <option value="Frostwolf">Frostwolf</option>
+  <option value="Icecrown">Icecrown</option>
   <option value="Blackrock">Blackrock</option>
  <input type="submit" value="Submit" size="35">
 </form></tr></td></table>

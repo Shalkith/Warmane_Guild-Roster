@@ -1,14 +1,17 @@
 
 def Warmane(guild,realm):
     import requests
-    url = "http://armory.warmane.com/api/guild/"+guild+"/"+realm+"/members"
-    data1 = requests.get(url)
-    data1 = data1.json()
-    rosterlist = []
-    for x in data1['roster']:
-        rosterlist.append(x)
-    return rosterlist
+    try:
 
+        url = "http://armory.warmane.com/api/guild/"+guild+"/"+realm+"/members"
+        data1 = requests.get(url)
+        data1 = data1.json()
+        rosterlist = []
+        for x in data1['roster']:
+            rosterlist.append(x)
+        return rosterlist
+    except:
+        return 'no good'
 #def Guildname():
     # import requests
     # url = "http://armory.warmane.com/api/guild/Born+On+A+Blood+Moon/Lordaeron/members"

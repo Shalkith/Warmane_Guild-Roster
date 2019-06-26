@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from data import Articles
 from data import Warmane
+import string
 app = Flask(__name__)
 app.debug=True
 
@@ -36,7 +37,11 @@ def index():
         parameters = request.form.to_dict()
         response = BenefitTemplateService.create(parameters)
         print(response['Guild'])
-        return render_template('warmane.html', data = Warmane(response['Guild'],response['Realm']), result = response)
+        try:
+            return render_template('warmane.html', data = Warmane(string.capwords(response['Guild']),response['Realm']), result = response)
+        except:
+            return render_template('warmane.html', data = Warmane("Born+On+A+Blood+Moon","Lordaeron"))
+
     else:
         return render_template('warmane.html', data = Warmane("Born+On+A+Blood+Moon","Lordaeron"))
 
@@ -57,4 +62,4 @@ def articles():
 
 if __name__ == '__main__':
     #Guildname()
-    app.run()
+    app.run(host='0.0.0.0')

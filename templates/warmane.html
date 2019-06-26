@@ -6,24 +6,36 @@
   <table class="sortable" border="1" align=center>
     <tr>
       <td colspan="6" align="center">
-        <div2><h1>
-          <br>
-          {% if result %}
-          {{result.Guild|replace("+"," ")}}
-          {%else%}
-          Born On A Blood Moon
+        <div2>
+
+          {% if result %}{%if data == 'no good'%}{%else%}
+          <h1><br>
+          {{result.Guild|replace("+"," ")|upper}}
+          </h1>
           {%endif%}
-        </h1>
+          {%else%}
+          <h4><div>
+            Welcome to the Warmane Guild Search.<br><br>
+            First, type a guild name above<br>
+            Then select the realm from the dropdown<br>
+            Finally, click submit!<h4></div>
+          {%endif%}
+
         </div2>
+        {% if result %}{%if data == 'no good'%}Sorry, no guild found.<br>Please try again!{%else%}
         {% for person in data %}
         {% if person.online == True %}
         {% if onlinecount.append(1) %}{% endif %}
         {% endif %}
         {% endfor %}
-        <br>{{onlinecount|length}} online!
 
+
+        <br>{{onlinecount|length}} online!
+        {%endif%}
+        {% endif %}
       </td>
     </tr>
+{% if result %}{%if data == 'no good'%}{%else%}
     <tr>
         <th class="text-center">Status</th>
         <th class="text-center">Name</th>
@@ -59,6 +71,8 @@
   {% endif %}
 
   {% endfor %}
+{% endif %}
+{% endif %}
 </div>
 </table>
 {% endblock %}
