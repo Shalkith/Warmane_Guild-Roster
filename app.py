@@ -2,11 +2,20 @@ from flask import Flask, render_template, request
 from data import Articles
 from data import Warmane
 import string
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField
+from wtforms.validators import InputRequired, Email, Length
+import os
+
+key = str(os.urandom(24))
 app = Flask(__name__)
-app.debug=True
+app.debug=True 
+app.secret_key = key
 
-Articles = Articles()
-
+class  LoginForm(FlaskForm):
+    username = StringField('username', validators=[InputRequired(),Length(min=4,max=30)])
+    password = PasswordField('password', validators=[InputRequired(),Length(min=8,max=80)])
+    remember = BooleanField('remember me')
 
 class BenefitTemplateService(object):
 
@@ -48,6 +57,11 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/login')
+def login():
+    form = LoginForm()
+    return render_template('login.html', form=form)
 
 #@app.route('/warmane')
 #def warmane():
